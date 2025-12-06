@@ -3,7 +3,7 @@
 ## Production URLs
 - **Backend API**: https://wellfire-new2-main.onrender.com
 - **Frontend**: https://wellfire-frontend-oa5j.onrender.com
-- **Admin Panel**: https://wellfire-new2.onrender.com
+-- **Admin Panel**: https://wellfire-new2-main-2.onrender.com
 
 ## Pre-Deployment Checklist
 
@@ -48,7 +48,7 @@ The backend `server.js` has been updated to allow requests from:
    EMAIL_USER=info.wellfire@gmail.com
    EMAIL_PASSWORD=scti vynl tcev uoim0zzz
    FRONTEND_URL=https://wellfire-frontend-oa5j.onrender.com
-   ADMIN_URL=https://wellfire-new2-main.onrender.com
+   ADMIN_URL=https://wellfire-new2-main-2.onrender.com
    ```
 
 2. **Build Command:**

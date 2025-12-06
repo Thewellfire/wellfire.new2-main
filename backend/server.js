@@ -42,9 +42,9 @@ app.use(cors({
         "http://localhost:5180",
         "http://localhost:3000",
         process.env.FRONTEND_URL || "https://wellfire-frontend-oa5j.onrender.com",
-        process.env.ADMIN_URL || "https://wellfire-new2-main.onrender.com",
+        process.env.ADMIN_URL || "https://wellfire-new2-main-2.onrender.com",
         "https://wellfire-frontend-oa5j.onrender.com",
-        "https://wellfire-new2-main.onrender.com"
+        "https://wellfire-new2-main-2.onrender.com"
     ],
     credentials: true
 }));
