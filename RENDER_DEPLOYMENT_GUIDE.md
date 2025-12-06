@@ -1,7 +1,7 @@
 # Render Deployment Guide for Wellfire Platform
 
 ## Production URLs
-- **Backend API**: https://wellfire-backend-5eww.onrender.com
+- **Backend API**: https://wellfire-new2-main.onrender.com
 - **Frontend**: https://wellfire-frontend-oa5j.onrender.com
 - **Admin Panel**: https://wellfire-new2.onrender.com
 
@@ -12,11 +12,11 @@ All `.env` files have been updated with production URLs. The configuration is as
 
 #### Backend (.env)
 - `FRONTEND_URL=https://wellfire-frontend-oa5j.onrender.com`
-- `ADMIN_URL=https://wellfire-new2.onrender.com`
+- `ADMIN_URL=https://wellfire-new2-main.onrender.com`
 - All other sensitive variables (MongoDB, Cloudinary, JWT, etc.) remain unchanged
 
 #### Frontend (.env)
-- `VITE_BACKEND_URL=https://wellfire-backend-5eww.onrender.com`
+- `VITE_BACKEND_URL=https://wellfire-new2-main.onrender.com`
 
 #### Admin Panel (.env)
 - `VITE_BACKEND_URL=https://wellfire-backend-5eww.onrender.com`
@@ -29,7 +29,7 @@ The backend `server.js` has been updated to allow requests from:
 
 ## Deployment Steps on Render
 
-### Backend Service (wellfire-backend-5eww)
+### Backend Service (wellfire-new2-main)
 
 1. **Environment Variables to Add in Render Dashboard:**
    ```
@@ -48,7 +48,7 @@ The backend `server.js` has been updated to allow requests from:
    EMAIL_USER=info.wellfire@gmail.com
    EMAIL_PASSWORD=scti vynl tcev uoim0zzz
    FRONTEND_URL=https://wellfire-frontend-oa5j.onrender.com
-   ADMIN_URL=https://wellfire-new2.onrender.com
+   ADMIN_URL=https://wellfire-new2-main.onrender.com
    ```
 
 2. **Build Command:**
@@ -65,7 +65,7 @@ The backend `server.js` has been updated to allow requests from:
 
 1. **Environment Variables to Add in Render Dashboard:**
    ```
-   VITE_BACKEND_URL=https://wellfire-backend-5eww.onrender.com
+   VITE_BACKEND_URL=https://wellfire-new2-main.onrender.com
    ```
 
 2. **Build Command:**
@@ -82,7 +82,7 @@ The backend `server.js` has been updated to allow requests from:
 
 1. **Environment Variables to Add in Render Dashboard:**
    ```
-   VITE_BACKEND_URL=https://wellfire-backend-5eww.onrender.com
+   VITE_BACKEND_URL=https://wellfire-new2-main.onrender.com
    ```
 
 2. **Build Command:**
@@ -114,7 +114,7 @@ The backend `server.js` has been updated to allow requests from:
 
 1. **Test Backend API:**
    ```bash
-   curl https://wellfire-backend-5eww.onrender.com
+   curl https://wellfire-new2-main.onrender.com
    ```
 
 2. **Test Frontend:**

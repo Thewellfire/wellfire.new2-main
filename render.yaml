@@ -34,7 +34,7 @@ services:
       - key: FRONTEND_URL
         value: https://wellfire-frontend-oa5j.onrender.com
       - key: ADMIN_URL
-        value: https://wellfire-new2.onrender.com
+        value: https://wellfire-new2-main.onrender.com
       - key: STRIPE_SECRET_KEY
         value: your_stripe_secret_here
       - key: RAZORPAY_KEY_SECRET
@@ -55,7 +55,7 @@ services:
       - key: NODE_VERSION
         value: 18.17.0
       - key: VITE_BACKEND_URL
-        value: https://wellfire-backend-5eww.onrender.com
+        value: https://wellfire-new2-main.onrender.com
 
   # Admin Service
   - type: web
@@ -70,4 +70,4 @@ services:
       - key: NODE_VERSION
         value: 18.17.0
       - key: VITE_BACKEND_URL
-        value: https://wellfire-backend-5eww.onrender.com
+        value: https://wellfire-new2-main.onrender.com
