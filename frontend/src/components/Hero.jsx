@@ -13,6 +13,7 @@ const Hero = () => {
   const [showText, setShowText] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   // Enhanced mobile detection
   useEffect(() => {
@@ -111,7 +112,7 @@ const Hero = () => {
             src={heroVideo}
             autoPlay
             loop
-            muted
+            muted={isMuted}
             playsInline
             poster=""
             className={`absolute inset-0 w-full h-full object-cover ${
@@ -140,6 +141,46 @@ const Hero = () => {
 
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none"></div>
+
+        {/* Unmute / Mute button (bottom-right corner) */}
+        {heroVideo && (
+          <button
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            onClick={() => {
+              const v = videoRef.current;
+              if (!v) return;
+              const newMuted = !isMuted;
+              setIsMuted(newMuted);
+              try {
+                v.muted = newMuted;
+                // If unmuting, ensure the video is playing (some browsers require a user gesture)
+                if (!newMuted) {
+                  v.play().catch(() => {
+                    // play may fail silently if browser blocks it; user gesture should fix it
+                  });
+                }
+              } catch (e) {
+                console.warn('Could not toggle mute/play:', e);
+              }
+            }}
+            className="absolute right-4 bottom-4 z-30 bg-black/50 text-white rounded-full p-3 hover:bg-black/70 focus:outline-none shadow-lg"
+            title={isMuted ? 'Unmute video' : 'Mute video'}
+          >
+            <span className="sr-only">{isMuted ? 'Unmute video' : 'Mute video'}</span>
+            {isMuted ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className={isMuted ? "h-5 w-5 transform transition-transform duration-150" : "h-8 w-8 transform transition-transform duration-150"} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 10v4h4l5 5V5L7 10H3z" />
+                <path d="M16.5 12a4.5 4.5 0 00-1.5-3.4l1.4-1.4A6.5 6.5 0 0119 12a6.5 6.5 0 01-2.6 5.2l-1.4-1.4A4.5 4.5 0 0016.5 12z" opacity="0.9" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className={isMuted ? "h-5 w-5 transform transition-transform duration-150" : "h-8 w-8 transform transition-transform duration-150"} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 10v4h4l5 5V5L7 10H3z" />
+                <path d="M16.5 12a4.5 4.5 0 00-1.5-3.4l1.4-1.4A6.5 6.5 0 0119 12a6.5 6.5 0 01-2.6 5.2l-1.4-1.4A4.5 4.5 0 0016.5 12z" opacity="0.9" />
+                <path d="M21 4L4 21" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
+          </button>
+        )}
 
         {/* Content Overlay - Using timing logic (Hidden on mobile) */}
         <AnimatePresence>
